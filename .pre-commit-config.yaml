@@ -17,3 +17,8 @@
     rev: 7.1.0
     hooks:
       - id: flake8
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.18.4
+    hooks:
+      - id: gitleaks
+        args: ["detect", "--config", "gitleaks.toml", "--redact"]
