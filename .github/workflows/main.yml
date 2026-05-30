@@ -139,7 +139,6 @@ jobs:
     if: vars.ENABLE_DEPLOY == 'true'
     environment:
       name: staging
-      url: http://${{ secrets.STAGING_HOST }}:8000
     steps:
       - name: Deploy image on staging host
         uses: appleboy/ssh-action@v1.0.3
@@ -162,7 +161,6 @@ jobs:
     if: vars.ENABLE_DEPLOY == 'true'
     environment:
       name: production
-      url: http://${{ secrets.PROD_HOST }}:8000
     steps:
       - name: Deploy image on production host
         uses: appleboy/ssh-action@v1.0.3
