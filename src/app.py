@@ -32,5 +32,3 @@ def has_wip_limit_violation(in_progress_tasks: int, wip_limit: int = 3) -> bool:
         raise ValueError("wip_limit must be positive")
 
     return in_progress_tasks > wip_limit
-
-x=1
