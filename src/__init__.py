@@ -1,1 +1,0 @@
-﻿"""TaskPulse CI demo package."""
