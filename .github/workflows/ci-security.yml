@@ -71,8 +71,12 @@ jobs:
           fetch-depth: 0
 
       - name: Install Gitleaks
+        env:
+          GITLEAKS_VERSION: 8.18.4
         run: |
-          curl -sSfL https://raw.githubusercontent.com/gitleaks/gitleaks/master/install.sh | sh -s -- -b .
+          curl -sSfL -o gitleaks.tar.gz "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz"
+          tar -xzf gitleaks.tar.gz gitleaks
+          chmod +x gitleaks
           ./gitleaks version
 
       - name: Run Gitleaks scan
@@ -165,4 +169,5 @@ jobs:
         with:
           name: trivy-image-report
           path: trivy-image-report.json
+
 
