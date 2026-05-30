@@ -25,7 +25,7 @@ jobs:
           fetch-depth: 0
 
       - name: Run Trivy filesystem scan
-        uses: aquasecurity/trivy-action@0.24.0
+        uses: aquasecurity/trivy-action@v0.35.0
         with:
           scan-type: fs
           scan-ref: .
@@ -36,7 +36,7 @@ jobs:
           exit-code: '0'
 
       - name: Save Trivy filesystem JSON report
-        uses: aquasecurity/trivy-action@0.24.0
+        uses: aquasecurity/trivy-action@v0.35.0
         with:
           scan-type: fs
           scan-ref: .
@@ -132,7 +132,7 @@ jobs:
           tags: ${{ env.IMAGE_TAG }}
 
       - name: Run Trivy image scan
-        uses: aquasecurity/trivy-action@0.24.0
+        uses: aquasecurity/trivy-action@v0.35.0
         with:
           image-ref: ${{ env.IMAGE_TAG }}
           scanners: vuln,secret,misconfig
@@ -142,7 +142,7 @@ jobs:
           exit-code: '0'
 
       - name: Save Trivy image JSON report
-        uses: aquasecurity/trivy-action@0.24.0
+        uses: aquasecurity/trivy-action@v0.35.0
         with:
           image-ref: ${{ env.IMAGE_TAG }}
           scanners: vuln,secret,misconfig
@@ -165,3 +165,4 @@ jobs:
         with:
           name: trivy-image-report
           path: trivy-image-report.json
+
